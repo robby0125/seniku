@@ -36,7 +36,7 @@
                 <input type="submit" value="LOGIN">
             </div>
         </form>
-        <p class="register nunito">Don't have an account? <a href="#">Register here</a></p>
+        <p class="register nunito">Don't have an account? <a href="register.php">Register here</a></p>
         <p class="copyright nunito">Copyright &copy; 2021 Seniku Team</p>
     </div>
 </body>
