@@ -1,2 +1,2 @@
 <?php
-include "assets/views/login.inc";
+header("Location: login.php");

@@ -1,2 +1,2 @@
 <?php
-include "assets/views/register.inc";
+include 'assets/views/register.inc';

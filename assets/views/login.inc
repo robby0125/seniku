@@ -1,3 +1,16 @@
+<?php
+if (isset($_POST['login'])) {
+    require_once 'utils/validator.php';
+
+    $validator = Validator::getInstance();
+    $error = $validator->getError();
+}
+
+$curEmail = '';
+
+if (isset($_POST['email'])) $curEmail = htmlspecialchars($_POST['email']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,21 +32,27 @@
     <div class="right-side">
         <h1 class="poppins">Hey there!</h1>
         <h2 class="nunito">Please login to continue!</h2>
-        <form action="" method="post">
+        <form action="<?= $_SERVER['PHP_SELF']; ?>" method="POST">
             <div class="field">
                 <label class="nunito" for="email">Username or email</label>
-                <input type="text" name="email" id="email">
+                <input type="text" name="email" id="email" value="<?= $curEmail; ?>">
+                <?php if (isset($error['email'])) : ?>
+                    <p class="error-message"><?= $error['email']; ?></p>
+                <?php endif; ?>
             </div>
             <div class="field">
                 <label class="nunito" for="password">Password</label>
                 <input type="password" name="password" id="password">
+                <?php if (isset($error['password'])) : ?>
+                    <p class="error-message"><?= $error['password']; ?></p>
+                <?php endif; ?>
             </div>
             <div class="field">
                 <input type="checkbox" name="remember_me" id="remember_me">
                 <label class="nunito" for="remember_me">Remember me</label>
             </div>
             <div class="field">
-                <input type="submit" value="LOGIN">
+                <input type="submit" name="login" value="LOGIN">
             </div>
         </form>
         <p class="register nunito">Don't have an account? <a href="register.php">Register here</a></p>

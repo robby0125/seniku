@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -44,4 +47,12 @@ table {
 
 * {
     box-sizing: border-box;
+}
+
+.error-message {
+	color: red;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 600;
+	font-size: 18px;
+	margin-top: 8px;
 }
