@@ -12,7 +12,7 @@
     <h1 class="title">Seniku</h1>
     <div class="form-container">
         <h2 class="poppins">Member Registration</h2>
-        <form action="" method="post">
+        <form action="<?= $_SERVER['PHP_SELF']; ?>" method="POST">
             <div class="field">
                 <label class="nunito" for="fullname">Full name</label>
                 <input type="text" name="fullname" id="fullname" placeholder="Enter your full name">
@@ -39,13 +39,13 @@
             </div>
             <div class="field">
                 <label class="nunito" for="phone">Phone number</label>
-                <input type="password" name="phone" id="phone" placeholder="Enter your phone number. e.g: 081123456789">
+                <input type="text" name="phone" id="phone" placeholder="Enter your phone number. e.g: 081123456789">
             </div>
             <div class="field">
                 <label class="nunito" for="birth">Date of birth</label>
                 <input type="date" name="birth" id="birth">
             </div>
-            <input type="submit" value="REGISTER">
+            <input type="submit" name="register" value="REGISTER">
         </form>
     </div>
     <p class="sign-in nunito">Don't have an account? <a href="login.php">Login</a></p>
