@@ -12,11 +12,15 @@ if (isset($_POST['login'])) {
 
     $error = $validator->getError();
 
-    if (!isset($error['email']))
-        $validator->validateEmail('email', $_POST['email']);
-
     if (!isset($error['password']))
         $validator->validateLength('password', $_POST['password'], 6, 'Password must be at least 6 characters.');
+
+    if (!isset($error['email']) && !isset($error['password'])) {
+        require_once 'controllers/auth_controller.php';
+        
+        $authController = AuthController::getInstance();
+        $authController->login($_POST['email'], $_POST['password']);
+    }
 }
 
 include 'assets/views/login.inc';

@@ -16,19 +16,37 @@ class AuthController extends Connection
         return self::$instance;
     }
 
-    public function login($userIdentity, $password) {
+    public function login($userIdentity, $password)
+    {
         $useEmail = filter_var($userIdentity, FILTER_VALIDATE_EMAIL);
-        $userFound = false;
+
+        $sql = '';
 
         if ($useEmail) {
-            $result = $this->getConnection()->prepare('SELECT * FROM user WHERE email = :email');
-            $result->bindValue(':email', $userIdentity);
-            $result->execute();
-            var_dump($result);
+            $sql = 'SELECT * FROM user WHERE email = :userIdentity';
+        } else {
+            $sql = 'SELECT * FROM user WHERE username = :userIdentity';
+        }
+
+        $result = $this->getConnection()->prepare($sql);
+        $result->bindValue(':userIdentity', $userIdentity);
+        $result->execute();
+        
+        if ($result->rowCount() == 1) {
+            $userInfo = $result->fetch();
+
+            if (password_verify($password, $userInfo['password'])) {
+                echo 'Login Success!';
+            } else {
+                echo 'Wrong password!';
+            }
+        } else {
+            echo 'User not found!';
         }
     }
 
-    public function register($fullname, $username, $email, $password, $gender, $phone, $birthday) {
+    public function register($fullname, $username, $email, $password, $gender, $phone, $birthday)
+    {
         require_once 'utils/role.php';
 
         $result = $this->getConnection()->prepare("INSERT INTO user(role, email, password, fullname, username, gender, phone, birthday, registered_date) VALUES(:role, :email, :password, :fullname, :username, :gender, :phone, :birthday, CURRENT_DATE())");
