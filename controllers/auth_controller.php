@@ -36,12 +36,12 @@ class AuthController extends Connection
             $userInfo = $result->fetch();
 
             if (password_verify($password, $userInfo['password'])) {
-                echo 'Login Success!';
+                return $userInfo;
             } else {
-                echo 'Wrong password!';
+                return 'Wrong password!';
             }
         } else {
-            echo 'User not found!';
+            return 'Username/email not found!';
         }
     }
 

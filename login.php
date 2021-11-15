@@ -17,9 +17,26 @@ if (isset($_POST['login'])) {
 
     if (!isset($error['email']) && !isset($error['password'])) {
         require_once 'controllers/auth_controller.php';
-        
+
         $authController = AuthController::getInstance();
-        $authController->login($_POST['email'], $_POST['password']);
+        $loginResult = $authController->login($_POST['email'], $_POST['password']);
+
+        if (is_array($loginResult)) {
+            if (isset($_POST['remember_me'])) {
+                $id = $loginResult['id'];
+                $privateKey = hash('sha512', 'thisisprivate');
+
+                $hash_id = hash('ripemd256', $id) . $privateKey . $id;
+
+                // rmi = remember me id
+                setcookie('rmi', $hash_id, time() + 60);
+            }
+
+            header('Location: index.php');
+            exit;
+        } else {
+            echo $loginResult;
+        }
     }
 }
 
