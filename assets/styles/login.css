@@ -89,11 +89,12 @@ input {
 input[type="checkbox"] {
     width: 24px;
     height: 24px;
+    color: black;
     position: relative;
     top: 4px;
 }
 
-input:focus {
+input:not([type="checkbox"]):focus {
     outline: none !important;
     border-color: #FF7651;
 }

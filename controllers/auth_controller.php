@@ -60,4 +60,13 @@ class AuthController extends Connection
         $result->bindValue(':birthday', $birthday);
         $result->execute();
     }
+
+    public function getUserById($id) {
+        $sql = 'SELECT * FROM user WHERE id = :id';
+        $result = $this->getConnection()->prepare($sql);
+        $result->bindValue(':id', $id);
+        $result->execute();
+
+        return $result->fetch();
+    }
 }
