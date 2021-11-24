@@ -269,23 +269,23 @@
             </div>
         </div>
 
-        <!-- Footer -->
+       
         <footer class="container padding-16 light-grey">
             <h4>FOOTER</h4>
             <p>Powered by <a href="#" target="_blank">kelompok 6</a></p>
         </footer>
 
-        <!-- End page content -->
+       
     </div>
 
     <script>
-        // Get the Sidebar
+        
         var mySidebar = document.getElementById("mySidebar");
 
-        // Get the DIV with overlay effect
+        
         var overlayBg = document.getElementById("myOverlay");
 
-        // Toggle between showing and hiding the sidebar, and add overlay effect
+        
         function w3_open() {
             if (mySidebar.style.display === 'block') {
                 mySidebar.style.display = 'none';
@@ -296,7 +296,7 @@
             }
         }
 
-        // Close the sidebar with the close button
+        
         function w3_close() {
             mySidebar.style.display = "none";
             overlayBg.style.display = "none";
