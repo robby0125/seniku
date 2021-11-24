@@ -7,7 +7,7 @@ abstract class Connection
     {
     }
 
-    public function getConnection()
+    public function getConnection() : PDO
     {
         if ($this->conn == null) {
             $host = 'localhost';
