@@ -49,7 +49,7 @@
                 <input type="submit" value="Login">
             </p>
             <p>
-                Don't have an account? <a href="register">Register here</a>
+                Don't have an account? <a href="register-admin.php">Register here</a>
             </p>
 
         </form>
