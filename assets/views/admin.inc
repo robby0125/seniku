@@ -273,10 +273,33 @@
         <footer class="container padding-16 light-grey">
             <h4>FOOTER</h4>
             <p>Powered by <a href="#" target="_blank">kelompok 6</a></p>
-        </footer>
-
-       
+        </footer>  
+        
     </div>
+     <script>
+        
+        var mySidebar = document.getElementById("mySidebar");
+
+        
+        var overlayBg = document.getElementById("myOverlay");
+
+        
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+                overlayBg.style.display = "none";
+            } else {
+                mySidebar.style.display = 'block';
+                overlayBg.style.display = "block";
+            }
+        }
+
+        
+        function w3_close() {
+            mySidebar.style.display = "none";
+            overlayBg.style.display = "none";
+        }
+    </script>
 
 </body>
 
