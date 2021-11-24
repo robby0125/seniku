@@ -27,7 +27,7 @@ class Uploader {
         $tmpName = $_FILES[$key]['tmp_name'];
 
         if ($size > 2097152) {
-            $this->errMessage = 'Uploaded image size is too big. (Max. 2MB)';
+            $this->errMessage = 'Uploaded image size is too big. (Max. 2Mb)';
             return false;
         }
 
