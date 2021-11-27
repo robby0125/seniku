@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
         $authController = AuthController::getInstance();
         $loginResult = $authController->login($_POST['email'], $_POST['password']);
 
-        if (is_array($loginResult)) {
+        if ($loginResult) {
             if (isset($_POST['remember_me'])) {
                 $id = $loginResult['id'];
                 $privateKey = hash('sha512', 'thisisprivate');
@@ -38,14 +38,13 @@ if (isset($_POST['login'])) {
 
                 // rmi = remember me id
                 setcookie('rmi', $hash_id, time() + 31536000);
+                setcookie('test', hash('md5', 'inirahasia'), time() + 60);
             }
 
             $_SESSION['UserLogin'] = $loginResult;
 
             header('Location: index.php');
             exit;
-        } else {
-            echo $loginResult;
         }
     }
 }

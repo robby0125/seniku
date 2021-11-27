@@ -103,6 +103,10 @@ aside.friends {
     background-color: #BEBEBE;
 }
 
+.horizontal-line.post-divider {
+    margin: 16px 0;
+}
+
 .btn-menu {
     width: 100%;
     height: 36px;
@@ -167,6 +171,11 @@ aside.friends {
     font-size: 16;
 }
 
+#txt-content:focus {
+    border: none;
+    outline: none;
+}
+
 #post-btn {
     display: flex;
     justify-content: space-between;
@@ -214,4 +223,60 @@ aside.friends {
     font-weight: 600;
     font-size: 14;
     color: white;
+}
+
+.empty-message {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.content-card {
+    margin: 8px 0;
+}
+
+.content-card .user-content {
+    display: flex;
+}
+
+.content-card .user-content img {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    object-fit: cover;
+    margin-right: 8px;
+}
+
+.content-card .user-content section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content-card .user-content section .name, .content-card .user-content section .post-date {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.content-card .user-content section .name {
+    color: black;
+    margin-bottom: 4px;
+}
+
+.content-card .user-content section .post-date {
+    color: #BEBEBE;
+}
+
+.content-card .content-text {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.content-card .content-img {
+    width: 40%;
+    margin: 0 auto;
 }

@@ -2,7 +2,7 @@
 class Uploader {
     private static $instance = null;
 
-    public $errMessage = '';
+    private $errMessage = '';
 
     protected function __construct()
     {
@@ -31,8 +31,12 @@ class Uploader {
             return false;
         }
 
-        move_uploaded_file($tmpName, $targetPath . '/' . $uploadedName . '.' . $type[1]);
+        move_uploaded_file($tmpName, $targetPath . '/' . $uploadedName);
 
         return true;
+    }
+
+    public function getErrorMessage() {
+        return $this->errMessage;
     }
 }

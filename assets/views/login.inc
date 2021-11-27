@@ -1,9 +1,14 @@
 <?php
-if (isset($_POST['login'])) {
+$hasLogin = isset($_POST['login']);
+
+if ($hasLogin) {
     require_once 'utils/validator.php';
+    require_once 'controllers/auth_controller.php';
 
     $validator = Validator::getInstance();
     $error = $validator->getError();
+
+    $authErrorMsg = AuthController::getInstance()->getError();
 }
 
 $curEmail = '';
@@ -32,6 +37,9 @@ if (isset($_POST['email'])) $curEmail = htmlspecialchars($_POST['email']);
     <div class="right-side">
         <h1 class="poppins">Hey there!</h1>
         <h2 class="nunito">Please login to continue!</h2>
+        <?php if ($hasLogin && isset($authErrorMsg)) : ?>
+            <p class="box-error"><?= $authErrorMsg; ?></p>
+        <?php endif; ?>
         <form action="<?= $_SERVER['PHP_SELF']; ?>" method="POST">
             <div class="field">
                 <label class="nunito" for="email">Username or email</label>

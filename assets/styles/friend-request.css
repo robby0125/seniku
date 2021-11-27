@@ -1,0 +1,72 @@
+main {
+    width: 100%;
+    position: absolute;
+    top: 72px;
+}
+
+#empty-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.user-list {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.user-list li {
+    margin-bottom: 16px;
+}
+
+.user-card {
+    height: 80px;
+    padding: 0 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-card .left-side {
+    display: flex;
+    align-items: center;
+}
+
+.user-card .user-picture {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 16px;
+}
+
+.user-main-text, .user-sub-text, .user-card .action-button {
+    font-family: 'Poppins', sans-serif;
+}
+
+.user-main-text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.user-sub-text {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.user-card .action-button {
+    width: 100px;
+    height: 36px;
+    background-color: #FF7651;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    line-height: 36px;
+}
